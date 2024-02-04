@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 const HangmanKeyboard = () => {
-  const originalWord = 'apple';
-  const [guessedWord, setGuessedWord] = useState(Array(originalWord.length).fill('_').join(''));
-  const [attempts, setAttempts] = useState(3);
+  const location = useLocation();
+  const level = location.state.difficulty;
+
+  const [originalWord, setOriginalWord] = useState('');
+  const [guessedWord, setGuessedWord] = useState('');
+  const [attempts, setAttempts] = useState(6);
+
+  useEffect(() => {
+    const fetchWord = async () => {
+      const response = await fetch(`https://random-word-api.herokuapp.com/word?length=${level}`);
+      const data = await response.json();
+      setOriginalWord(data[0]);
+      setGuessedWord(Array(data[0].length).fill('_').join(''));
+    };
+
+    fetchWord();
+  }, [level]);
 
   const guessLetter = () => {
     let letter = prompt('Guess a letter');

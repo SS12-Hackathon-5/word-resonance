@@ -1,8 +1,8 @@
-import Header from '../Header'
 import './Account.css';
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {Container, Row } from 'react-bootstrap';
 
 const Account = () => {
   const [newUsername, setNewUsername] = useState('');
@@ -31,27 +31,34 @@ const Account = () => {
 
   return (
     <div>
-      <h1>Create New Account</h1>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="newUsername">
-          <Form.Label>New Username:</Form.Label>
-          <Form.Control type="username" placeholder='Username' size ='lg' value={newUsername} onChange={handleUsernameChange} />
-        </Form.Group>
-
-        <Form.Group controlId="newPassword">
-          <Form.Label>New Password:</Form.Label>
-          <Form.Control type="password" placeholder='Password' size = 'lg' value={newPassword} onChange={handlePasswordChange} />
-        </Form.Group>
-
-        <Form.Group controlId="confirmPassword">
-          <Form.Label>Confirm Password:</Form.Label>
-          <Form.Control type="password" placeholder='Password' size='lg'  value={confirmPassword} onChange={handleConfirmPasswordChange} />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Create Account
-        </Button>
-      </Form>
+      <Container>
+        <Row>
+          <div className="custom-text">Create New Account</div>
+        </Row>
+        <br/><br/><br/>
+        <Row>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="newUsername">
+            <Form.Control className="custom-text" type="username" placeholder='Username' size ='lg' value={newUsername} onChange={handleUsernameChange} />
+          </Form.Group>
+          <br/><br/>
+          <Form.Group controlId="newPassword">
+            <Form.Control className="custom-text" type="password" placeholder='Password' size = 'lg' value={newPassword} onChange={handlePasswordChange} />
+          </Form.Group>
+          <br/><br/>
+          <Form.Group controlId="confirmPassword">
+            <Form.Control className="custom-text" type="password" placeholder='Confirm Password' size='lg'  value={confirmPassword} onChange={handleConfirmPasswordChange} />
+          </Form.Group>
+          <br/><br/>
+          <Row>
+          <button type="submit" className="btn btn-dark mega">
+              Create Account
+          </button> 
+          </Row>  
+        </Form>
+        </Row>
+        <br/><br/><br/>
+      </Container>
     </div>
   );
 };

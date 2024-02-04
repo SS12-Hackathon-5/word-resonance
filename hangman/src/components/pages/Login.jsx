@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-//import { Navigate, useHistory, useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import './login.css'
+import { useNavigate } from 'react-router-dom';
 import Header from '../Header'
 import Form from 'react-bootstrap/Form'
+import { Container, Row } from 'react-bootstrap';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -39,28 +39,34 @@ const Login = () => {
 
   return (
     <div>
-        <Header />
-        <h1>Game Name</h1>
-        <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-            <Form.Control type="username" placeholder="Username" size="lg" value={username} onChange={handleUsernameChange}/>
-            <Form.Text className="text-muted">
-                Come up with a name!
-                <br /><br /><br />
-            </Form.Text>
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
-            </Form.Group>
+      <Header />
+      <br/><br/><br/>
+      <Container>
+        <Row>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mega" controlId="formBasicEmail">
+              <Form.Control type="username" placeholder="Username" variant="dark" value={username} onChange={handleUsernameChange}/>
+                <br/>
+              </Form.Group>
+              <Form.Group className="mega" controlId="formBasicPassword">
+                <Form.Control type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
+              </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
-                <br /><br /><br />
+              <br/>
             </Form.Group>
-            <button type="submit" className="btn btn-light">Submit</button>
-            <br /><br /><br /><br /><br /><br />
-            <button type="button" className="btn btn-light" onClick={handleCreateAccount}>
-          Create New Account
-        </button>
-        </Form>
+            <Row>
+              <button type="submit" className="btn btn-dark mega">Submit</button>
+            </Row>
+            <br />
+            <Row>
+            <button type="button" className="btn btn-dark mega" onClick={handleCreateAccount}>
+              Create New Account
+            </button>
+            </Row>
+          </Form>
+        </Row>
+        <br/><br/><br/>
+      </Container>
     </div>
   )
 }

@@ -1,10 +1,13 @@
 import React from 'react'
-import HangmanGame from '../Hangman'
+import { Route } from 'react-router-dom';
+import WordGame from '../SetDifficulty'
+import HangmanKeyboard from '../HangmanKeyboard';
 
-const GameStart = () => {
+const GameStart = ({difficulty}) => {
+
   return (
     <div>
-      <Route path="/GameStart" component={HangmanGame} />
+      <Route path="/GameStart" component={HangmanKeyboard} word={<WordGame difficulty={5} />} />
     </div>
   )
 }
