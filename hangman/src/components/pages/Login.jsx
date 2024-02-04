@@ -21,7 +21,20 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Redirect to /game page and pass username and password
-    Navigate('/game', { username, password });
+    //Navigate('/game', { username, password });
+
+    //log username and password to console
+    console.log('Username:', username);
+    console.log('Password:', password);
+
+    //redirect to game page and pass username and password
+    Navigate('/Game',{state: {username,password}});
+  }
+
+  const handleCreateAccount = (event)=>{
+    event.preventDefault();
+    //redirects to /accunt page
+    Navigate('/Account');
   }
 
   return (
@@ -44,7 +57,9 @@ const Login = () => {
             </Form.Group>
             <button type="submit" className="btn btn-light">Submit</button>
             <br /><br /><br /><br /><br /><br />
-            <button type="submit" className="btn btn-light">Create New Account</button>
+            <button type="button" className="btn btn-light" onClick={handleCreateAccount}>
+          Create New Account
+        </button>
         </Form>
     </div>
   )
