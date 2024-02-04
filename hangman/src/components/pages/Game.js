@@ -4,6 +4,7 @@ import { Modal, Button } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Link } from "react-router-dom";
 
 const GameComponent = () => {
   const [show, setShow] = useState(false);
@@ -25,7 +26,9 @@ const GameComponent = () => {
                     <Modal.Title>Select Difficulty</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <Button variant="dark" className="mega" onClick={handleClose}>Easy</Button>
+                    <Link to="/Hangman">
+                    <Button variant="dark" className="mega">Easy</Button>
+                    </Link>
                     <br/><br/>
                     <Button variant="dark" className="mega" onClick={handleClose}>Normal</Button>
                     <br/><br/>

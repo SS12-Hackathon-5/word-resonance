@@ -1,8 +1,11 @@
 import React from 'react'
+import HangmanGame from '../Hangman'
 
 const GameStart = () => {
   return (
-    <div>This is the gamestart page with difficulty selection</div>
+    <div>
+      <Route path="/GameStart" component={HangmanGame} />
+    </div>
   )
 }
 
