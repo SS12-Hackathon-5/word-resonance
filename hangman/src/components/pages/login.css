@@ -11,3 +11,10 @@
     left: 0;
     z-index: -1;
 }
+
+.mega input {
+    font-size: 70px !important;
+    color: rgb(0, 0, 0) !important;
+    word-spacing: 10px !important;
+    text-align: center !important;
+}

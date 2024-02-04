@@ -1,3 +1,17 @@
 .mega {
-    font-size: 50px;
+    font-size: 70px !important;
+    color: rgb(255, 255, 255) !important;
+    word-spacing: 10px !important;
+}
+
+.gametext {
+    font-size: 80px !important;
+    color: rgb(0, 0, 0) !important;
+    word-spacing: 10px !important;
+    text-align: center !important;
+}
+
+.custom-text {
+    font-size: 50px !important;
+    color: rgb(0, 0, 0) !important;
 }

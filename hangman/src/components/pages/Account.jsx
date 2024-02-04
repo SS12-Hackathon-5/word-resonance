@@ -1,9 +1,9 @@
-import Header from '../Header'
 import './Account.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {Container, Row } from 'react-bootstrap';
 
 const Account = () => {
   const [username, setNewUsername] = useState('');
@@ -54,22 +54,21 @@ const Account = () => {
     <div>
       <h1>Create New Account</h1>
       <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="username">
+        <Form.Group controlId="newUsername">
           <Form.Label>New Username:</Form.Label>
           <Form.Control type="username" placeholder='Username' size ='lg' value={username} onChange={handleUsernameChange} />
         </Form.Group>
 
-        <Form.Group controlId="password">
+        <Form.Group controlId="newPassword">
           <Form.Label>New Password:</Form.Label>
           <Form.Control type="password" placeholder='Password' size = 'lg' value={password} onChange={handlePasswordChange} />
         </Form.Group>
 
-        <Form.Group controlId="password">
+        <Form.Group controlId="confirmPassword">
           <Form.Label>Confirm Password:</Form.Label>
-          <Form.Control type="password" placeholder='Password' size='lg'  value={confirmPassword} onChange={handleConfirmPasswordChange} isInvalid={!passwordsMatch}/>
+          <Form.Control type="password" placeholder='Password' size='lg'  value={confirmPassword} onChange={handleConfirmPasswordChange} />
           {!passwordsMatch && <Form.Control.Feedback type="invalid" style={{ fontSize: '36px' }}>Passwords do not match</Form.Control.Feedback>}
         </Form.Group>
-        
 
         <Button variant="primary" type="submit">
           Create Account
