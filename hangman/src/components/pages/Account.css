@@ -1,0 +1,14 @@
+.centered-text {
+    text-align: center;
+    background-color: rgb(239, 212, 177);
+}
+
+.background {
+    background-color: #307635;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
