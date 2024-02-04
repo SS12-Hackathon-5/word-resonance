@@ -58,7 +58,9 @@ const GameComponent = () => {
             </Row>
             <br/><br/><br/>
             <Row>
+            <Link to="/Leaderboard">
             <Button className="mega" variant="dark">Leaderboard</Button>
+            </Link>
             </Row>
             <br/><br/><br/>
             <Row>
