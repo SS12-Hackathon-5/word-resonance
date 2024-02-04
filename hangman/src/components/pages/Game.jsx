@@ -22,19 +22,31 @@ const GameComponent = () => {
                 </Button>
 
                 <Modal show={show} onHide={handleClose} size="lg" centered>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Select Difficulty</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <Link to="/Hangman">
-                    <Button variant="dark" className="mega">Easy</Button>
-                    </Link>
-                    <br/><br/>
-                    <Button variant="dark" className="mega" onClick={handleClose}>Normal</Button>
-                    <br/><br/>
-                    <Button variant="dark" className="mega" onClick={handleClose}>Hard</Button>
-                  </Modal.Body>
-                </Modal>
+  <Modal.Header closeButton>
+    <Modal.Title>Select Difficulty</Modal.Title>
+  </Modal.Header>
+  <Modal.Body>
+    <Container>
+      <Row className="mb-3">
+        <Col>
+          <Link to="/Hangman">
+            <Button variant="dark" className="mega w-100">Easy</Button>
+          </Link>
+        </Col>
+      </Row>
+      <Row className="mb-3">
+        <Col>
+          <Button variant="dark" className="mega w-100" onClick={handleClose}>Normal</Button>
+        </Col>
+      </Row>
+      <Row className="mb-3">
+        <Col>
+          <Button variant="dark" className="mega w-100" onClick={handleClose}>Hard</Button>
+        </Col>
+      </Row>
+    </Container>
+  </Modal.Body>
+</Modal>
                 </Col>
             </Row>
             <br/><br/><br/>
