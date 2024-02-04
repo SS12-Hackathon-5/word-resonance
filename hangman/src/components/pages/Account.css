@@ -22,3 +22,9 @@
 .custom-text input {
     color: black !important;
 }
+.custom-text-2 {
+    font-size: 70px !important;
+    color: rgb(255, 255, 255) !important;
+    word-spacing: 10px !important;
+    text-align: center !important;
+}

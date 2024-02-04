@@ -15,7 +15,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Menu />
+        {/* <Menu /> */}
         <TextToSpeech text={"Welcome to Word Resonance! Please login or create an account to play the game."}/>
           <Routes>
           <Route path ="/" element={<Login />} />
