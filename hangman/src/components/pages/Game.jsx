@@ -12,15 +12,12 @@ const GameComponent = () => {
   
 
   const [showStart, setShowStart] = useState(false);
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
 
   const handleCloseStart = () => setShowStart(false);
-  const handleCloseLeaderboard = () => setShowLeaderboard(false);
   const handleCloseHelp = () => setShowHelp(false);
 
   const handleShowStart = () => setShowStart(true);
-  const handleShowLeaderboard = () => setShowLeaderboard(true);
   const handleShowHelp = () => setShowHelp(true);
 
   return (
@@ -54,21 +51,9 @@ const GameComponent = () => {
             </Row>
             <br/><br/><br/>
             <Row>
-            <Button className="mega" variant="dark" onClick={handleShowLeaderboard}>Leaderboard</Button>
-              <Modal show={showLeaderboard} onHide={handleCloseLeaderboard} size="lg" centered>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Leaderboard</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                  1st 
-                  </Modal.Body>
-                  <Modal.Body>
-                  2nd 
-                  </Modal.Body>
-                  <Modal.Body>
-                  3rd 
-                  </Modal.Body>
-                </Modal>
+            <Link to="/Leaderboard">
+            <Button className="mega" variant="dark">Leaderboard</Button>
+            </Link>
             </Row>
             <br/><br/><br/>
             <Row>
@@ -80,8 +65,9 @@ const GameComponent = () => {
                   <Modal.Header closeButton>
                     <Modal.Title>Help</Modal.Title>
                   </Modal.Header>
+                  
                   <Modal.Body>
-                  You guess the letters of a word to solve the word. The word is given by text to speech. You make your guess by talking into the microphone. You are allowed 6 wrong before you are out of the game. 
+                  You guess the letters of a word to solve the word. The word is given by text to speech. You make your guess by talking into the microphone. You are allowed 3 wrong guesses before you are out of the game. 
 
                   </Modal.Body>
                 </Modal>
