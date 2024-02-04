@@ -7,6 +7,7 @@ import Account from './components/pages/Account';
 import Menu from './components/Menu';
 import HangmanGame from './components/Hangman';
 import Leaderboard from './components/pages/Leaderboard';
+import HangmanKeyboard from './components/HangmanKeyboard';
 
 function App() {
   return (

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import DeathScreen from './Deathscreen';
-import { Button, Container, Row, Col} from 'react-bootstrap';
+import { Button, Container, Row} from 'react-bootstrap';
 import './pages/Game.css';
 
 const HangmanGame = ({ word }) => {
   const originalWord = word || 'apple';
   const [guessedWord, setGuessedWord] = useState(Array(originalWord.length).fill('_').join(''));
-  const [attempts, setAttempts] = useState(3);
+  const [attempts, setAttempts] = useState(6);
   const { transcript, resetTranscript } = useSpeechRecognition();
 
   const processGuess = (transcript) => {

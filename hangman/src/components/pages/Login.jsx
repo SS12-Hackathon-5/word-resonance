@@ -41,27 +41,32 @@ const Login = () => {
   return (
     <div>
       <Header />
+      <br/><br/><br/>
       <Container>
         <Row>
-        <h1>Game Name</h1>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
-            <Form.Control type="username" placeholder="Username" variant="dark" className="mega" value={username} onChange={handleUsernameChange}/>
+            <Form.Control className="mega w-100" type="username" placeholder="Username" variant="dark" value={username} onChange={handleUsernameChange}/>
                 <br /><br /><br />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
-            <Form.Control type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
+            <Form.Control className="mega" type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
                 <br /><br /><br />
             </Form.Group>
+            <Row>
             <button type="submit" className="btn btn-dark mega">Submit</button>
-            <br /><br /><br />
+            </Row>
+            <br />
+            <Row>
             <button type="button" className="btn btn-dark mega" onClick={handleCreateAccount}>
-          Create New Account
-        </button>
+            Create New Account
+            </button>
+            </Row>
         </Form>
         </Row>
+        <br/><br/><br/>
       </Container>
     </div>
   )
