@@ -59,25 +59,33 @@ const HangmanGame = () => {
   return (
     
     <div>
-      <br /><br /><br /><br />
+      <br /><br />
+
+      <div className="gametext">Word so far: {"\n"} {guessedWord}</div>
+      <div className="gametext">Attempts left: {attempts}</div>
       <Container>
         <Row>
-          <Col>
-          <Button onClick={SpeechRecognition.startListening} variant="dark" className="mega">Start Guessing</Button>
-          </Col>
-          <Col>
-          <Button onClick={stopRecordingAndProcessGuess} variant="dark" className="mega">Stop and Process Guess</Button>
-          </Col>
-          <Col>
-          <Button onClick={failGame} variant="dark" className="mega">Fail Game</Button>
-          </Col>
-          <Col>
-          <Button onClick={saveGame} variant="dark" className="mega">Save Game</Button>
-          </Col>
+        <Button onClick={SpeechRecognition.startListening} variant="dark" className="custom-text">Start Guessing</Button>
+        </Row>
+        <Row>
+          <br/>
+        </Row>
+        <Row>
+        <Button onClick={stopRecordingAndProcessGuess} variant="dark" className="custom-text">Stop and Process Guess</Button>
+        </Row>
+        <Row>
+          <br/>
+        </Row>
+        <Row>
+        <Button onClick={failGame} variant="dark" className="mega">Quit</Button>
+        </Row>
+        <Row>
+          <br/>
+        </Row>
+        <Row>
+        <Button onClick={saveGame} variant="dark" className="mega">Save Game</Button>
         </Row>
       </Container>
-      <p>Word so far: {guessedWord}</p>
-      <p>Attempts left: {attempts}</p>
     </div>
   );
 };

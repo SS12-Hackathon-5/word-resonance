@@ -14,12 +14,15 @@ const GameComponent = () => {
 
   return (
     <div>
-        <Container>
+        <Container className="mt-5">
             <Row>
                 <Col>
+                <br/><br/><br/>
+                <Row>
                 <Button className="mega" variant="dark" onClick={handleShow}>
                   Start
                 </Button>
+                </Row>
 
                 <Modal show={show} onHide={handleClose} size="lg" centered>
   <Modal.Header closeButton>

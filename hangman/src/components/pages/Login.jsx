@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import './login.css'
 import Header from '../Header'
 import Form from 'react-bootstrap/Form'
+import { Container, Row } from 'react-bootstrap';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -39,15 +40,14 @@ const Login = () => {
 
   return (
     <div>
-        <Header />
+      <Header />
+      <Container>
+        <Row>
         <h1>Game Name</h1>
         <Form onSubmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
-            <Form.Control type="username" placeholder="Username" size="lg" value={username} onChange={handleUsernameChange}/>
-            <Form.Text className="text-muted">
-                Come up with a name!
+            <Form.Control type="username" placeholder="Username" variant="dark" className="mega" value={username} onChange={handleUsernameChange}/>
                 <br /><br /><br />
-            </Form.Text>
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
             <Form.Control type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
@@ -55,12 +55,14 @@ const Login = () => {
             <Form.Group controlId="formBasicCheckbox">
                 <br /><br /><br />
             </Form.Group>
-            <button type="submit" className="btn btn-light">Submit</button>
-            <br /><br /><br /><br /><br /><br />
-            <button type="button" className="btn btn-light" onClick={handleCreateAccount}>
+            <button type="submit" className="btn btn-dark mega">Submit</button>
+            <br /><br /><br />
+            <button type="button" className="btn btn-dark mega" onClick={handleCreateAccount}>
           Create New Account
         </button>
         </Form>
+        </Row>
+      </Container>
     </div>
   )
 }
