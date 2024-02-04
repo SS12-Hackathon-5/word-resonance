@@ -8,6 +8,7 @@ import HangmanGame from './components/Hangman';
 import Leaderboard from './components/pages/Leaderboard';
 import GameComponent from './components/pages/Game';
 import Continue from './components/Continue';
+import TextToSpeech from './components/TTS';
 //import HangmanKeyboard from './components/HangmanKeyboard';
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
     <Router>
       <div className="App">
         <Menu />
-        <Routes>
+        <TextToSpeech text={"Welcome to Word Resonance! Please login or create an account to play the game."}/>
+          <Routes>
+          <Route path ="/" element={<Login />} />
           <Route path="/account" element={<Account />} />
           <Route path="/login" element={<Login />} />
           <Route path="/game" element={<GameComponent />} />

@@ -107,6 +107,7 @@ const HangmanGame = () => {
   const [originalWord, setOriginalWord] = useState(' ');
   const [guessedWord, setGuessedWord] = useState('');
   const [attempts, setAttempts] = useState(6);
+  const [speakText, setSpeakText] = useState(null);
 
   const { transcript, resetTranscript } = useSpeechRecognition();
 
@@ -143,11 +144,14 @@ const HangmanGame = () => {
     }
   };
   const failGame = () => {
+    setSpeakText("You lost!");
     setAttempts(0);
   };
   const saveGame = () => {
     localStorage.setItem('guessedWord', guessedWord);
     localStorage.setItem('attempts', attempts);
+    localStorage.setItem('originalWord', originalWord);
+    localStorage.setItem('letters', originalWord.length);
   }
 
   if (attempts === 0) {
@@ -169,32 +173,34 @@ const HangmanGame = () => {
   return (
     <div>
       <TextToSpeech text={`The word is ${originalWord.length} letters long`} />
-      <br /><br />
+      <br /><br/>
       <div className="gametext">Word so far: {"\n"} {guessedWord}</div>
       <div className="gametext">Attempts left: {attempts}</div>
       <Container>
         <Row>
-        <Button onClick={SpeechRecognition.startListening} variant="dark" className="mega">Start Guessing</Button>
+        <Button onClick={() => {SpeechRecognition.startListening(); setSpeakText("Guess a letter.");}} variant="dark" className="mega">Start Guessing</Button>
         </Row>
         <Row>
           <br/>
         </Row>
         <Row>
-        <Button onClick={SpeechRecognition.stopListening} variant="dark" className="mega">Stop and Process Guess</Button>
+        <Button onClick={() => {SpeechRecognition.startListening(); setSpeakText("Stopped guessing.");}}variant="dark" className="mega">Stop and Process Guess</Button>
+
         </Row>
         <Row>
           <br/>
         </Row>
         <Row>
-        <Button onClick={failGame} variant="dark" className="mega">Quit</Button>
+        <Button onClick={() => {setSpeakText(`"You lost! The word was "${originalWord}".`); failGame();}} variant="dark" className="mega">Quit</Button>
         </Row>
         <Row>
           <br/>
         </Row>
         <Row>
-        <Button onClick={saveGame} variant="dark" className="mega">Save Game</Button>
+        <Button onClick={() => {setSpeakText("Game Saved"); saveGame();}} variant="dark" className="mega">Save Game</Button>
         </Row>
       </Container>
+      {speakText && <TextToSpeech text={speakText} />}
     </div>
     
   );

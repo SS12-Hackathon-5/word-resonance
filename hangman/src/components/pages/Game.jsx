@@ -6,11 +6,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
+import TextToSpeech from '../TTS';
 
 const GameComponent = () => {
   const [show, setShow] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
   const navigate = useNavigate();
+  const [speakText,setSpeakText] = useState(null);
 
   const handleClose = () => setShow(false);
   const handleCloseHelp = () => setShowHelp(false);
@@ -34,7 +36,7 @@ const GameComponent = () => {
       <Container>
       <br/><br/>
         <Row className="mb-3">
-          <Button variant="dark" className="mega w-100" onClick={handleShow}>
+          <Button variant="dark" className="mega w-100" onClick={() => {handleShow(); setSpeakText("Start.");}}>
           Start Game
           </Button>
           <Modal show={show} onHide={handleClose} size="lg" centered>
@@ -45,21 +47,21 @@ const GameComponent = () => {
               <Container>
                 <Row className="mb-3">
                   <Col>
-                    <Button variant="dark" className="mega w-100" onClick={() => handleStartGame('easy')}>
+                    <Button variant="dark" className="mega w-100" onClick={() => { handleStartGame('easy'); setSpeakText("Easy"); }}>
                       Easy
                     </Button>
                   </Col>
                 </Row>
                 <Row className="mb-3">
                   <Col>
-                    <Button variant="dark" className="mega w-100" onClick={() => handleStartGame('normal')}>
+                    <Button variant="dark" className="mega w-100" onClick={() => { handleStartGame('normal'); setSpeakText("Normal"); }}>
                       Normal
                     </Button>
                   </Col>
                 </Row>
                 <Row className="mb-3">
                   <Col>
-                    <Button variant="dark" className="mega w-100" onClick={() => handleStartGame('hard')}>
+                    <Button variant="dark" className="mega w-100" onClick={() => { handleStartGame('hard'); setSpeakText("Hard"); }}>
                       Hard
                     </Button>
                   </Col>
@@ -91,6 +93,7 @@ const GameComponent = () => {
         </Modal.Body>
       </Modal>
       </Container>
+      {speakText && <TextToSpeech text={speakText} />}
     </div>
   );
 }
