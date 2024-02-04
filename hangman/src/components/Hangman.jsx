@@ -1,5 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import DeathScreen from './Deathscreen';
+import { Button, Container, Row, Col} from 'react-bootstrap';
+import './pages/Game.css';
 
 const HangmanGame = () => {
   const originalWord = 'apple';
@@ -33,8 +36,20 @@ const HangmanGame = () => {
     resetTranscript();
   };
 
+  //Function that fails the player immediately - added to prompt death screen and debug.
+  const failGame = () => {
+    setAttempts(0);
+  };
+
+  const saveGame = () => {
+    localStorage.setItem('guessedWord', guessedWord);
+    localStorage.setItem('attempts', attempts);
+  };
+
   if (attempts === 0) {
-    return <div>You lost! The word was "{originalWord}".</div>;
+    return <div>
+        <DeathScreen className="mega" message="You lost! The word was 'apple'." route="/hangman" />
+      </div>;
   }
 
   if (guessedWord === originalWord) {
@@ -44,8 +59,23 @@ const HangmanGame = () => {
   return (
     
     <div>
-      <button onClick={SpeechRecognition.startListening}>Start Guessing</button>
-      <button onClick={stopRecordingAndProcessGuess}>Stop and Process Guess</button>
+      <br /><br /><br /><br />
+      <Container>
+        <Row>
+          <Col>
+          <Button onClick={SpeechRecognition.startListening} variant="dark" className="mega">Start Guessing</Button>
+          </Col>
+          <Col>
+          <Button onClick={stopRecordingAndProcessGuess} variant="dark" className="mega">Stop and Process Guess</Button>
+          </Col>
+          <Col>
+          <Button onClick={failGame} variant="dark" className="mega">Fail Game</Button>
+          </Col>
+          <Col>
+          <Button onClick={saveGame} variant="dark" className="mega">Save Game</Button>
+          </Col>
+        </Row>
+      </Container>
       <p>Word so far: {guessedWord}</p>
       <p>Attempts left: {attempts}</p>
     </div>

@@ -6,7 +6,6 @@ import Game from './components/pages/Game';
 import Account from './components/pages/Account';
 import Menu from './components/Menu';
 import HangmanGame from './components/Hangman';
-import HangmanKeyboard from './components/HangmanKeyboard';
 
 function App() {
   return (

@@ -17,7 +17,7 @@ const GameComponent = () => {
         <Container>
             <Row>
                 <Col>
-                <Button variant="dark" className="mega" onClick={handleShow}>
+                <Button className="mega" variant="dark" onClick={handleShow}>
                   Start
                 </Button>
 
