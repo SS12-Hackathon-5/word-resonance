@@ -98,6 +98,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 import DeathScreen from './Deathscreen';
 import { Container, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import TextToSpeech from './TTS';
 
 const HangmanGame = () => {
@@ -196,9 +197,18 @@ const HangmanGame = () => {
         <Row>
           <br/>
         </Row>
+        {/* <Row>
+        <Button onClick={() => {setSpeakText("Game Saved"); saveGame();}} variant="dark" className="mega" Path to="/game">Save Game</Button>
+        </Row> */}
         <Row>
-        <Button onClick={() => {setSpeakText("Game Saved"); saveGame();}} variant="dark" className="mega">Save Game</Button>
-        </Row>
+  <Link to="/game">
+    <Row>
+    <Button onClick={() => {setSpeakText("Game Saved"); saveGame();}} variant="dark" className="mega">
+      Save Game
+    </Button>
+    </Row>
+  </Link>
+  </Row>
       </Container>
       {speakText && <TextToSpeech text={speakText} />}
     </div>
