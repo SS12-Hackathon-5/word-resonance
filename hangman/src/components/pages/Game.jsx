@@ -8,9 +8,13 @@ import { Link } from "react-router-dom";
 
 const GameComponent = () => {
   const [show, setShow] = useState(false);
+  const [showHelp, setShowHelp] = useState(false);
 
   const handleClose = () => setShow(false);
+  const handleCloseHelp = () => setShowHelp(false);
+
   const handleShow = () => setShow(true);
+  const handleShowHelp = () => setShowHelp(true);
 
   return (
     <div>
@@ -64,7 +68,17 @@ const GameComponent = () => {
             </Row>
             <br/><br/><br/>
             <Row>
-            <Button className="mega" variant="dark">Help</Button>
+            <Button className="mega" variant="dark" onClick={handleShowHelp}>Help</Button>
+              <Modal show={showHelp} onHide={handleCloseHelp} size="lg" centered>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Help</Modal.Title>
+                  </Modal.Header>
+                  
+                  <Modal.Body>
+                  You guess the letters of a word to solve the word. The length of the word is given by text to speech. You make your guess by talking into the microphone. You are allowed a given amount of wrong guesses before you are out of the game. 
+
+                  </Modal.Body>
+                </Modal>
         </Row>
         </Container>
     </div>
