@@ -1,4 +1,3 @@
-import Header from '../Header'
 import './Account.css';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
