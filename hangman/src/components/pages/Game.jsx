@@ -67,7 +67,7 @@ const GameComponent = () => {
                   </Modal.Header>
                   
                   <Modal.Body>
-                  You guess the letters of a word to solve the word. The word is given by text to speech. You make your guess by talking into the microphone. You are allowed 3 wrong guesses before you are out of the game. 
+                  You guess the letters of a word to solve the word. The length of the word is given by text to speech. You make your guess by talking into the microphone. You are allowed 3 wrong guesses before you are out of the game. 
 
                   </Modal.Body>
                 </Modal>
