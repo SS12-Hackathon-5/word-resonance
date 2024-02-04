@@ -18,6 +18,7 @@ function App() {
           <Route path="/account" element={<Account />} />
           {/* Add other routes here */}
           <Route path="/hangman" element={<HangmanGame />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
       </div>
     </Router>
