@@ -11,12 +11,6 @@
     left: 0;
     z-index: -1;
 }
-.mega {
-    font-size: 70px !important;
-    color: rgb(0, 0, 0);
-    word-spacing: 10px !important;
-    text-align: center !important;
-}
 
 .mega input {
     font-size: 70px !important;

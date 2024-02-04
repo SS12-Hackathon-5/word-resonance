@@ -95,12 +95,16 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import DeathScreen from './Deathscreen';
+import { Container, Row } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
+import TextToSpeech from './TTS';
 
-const HangmanKeyboard = () => {
+const HangmanGame = () => {
   const location = useLocation();
   const level = location.state.difficulty;
 
-  const [originalWord, setOriginalWord] = useState('');
+  const [originalWord, setOriginalWord] = useState(' ');
   const [guessedWord, setGuessedWord] = useState('');
   const [attempts, setAttempts] = useState(6);
 
@@ -138,23 +142,62 @@ const HangmanKeyboard = () => {
       setAttempts(attempts - 1);
     }
   };
+  const failGame = () => {
+    setAttempts(0);
+  };
+  const saveGame = () => {
+    localStorage.setItem('guessedWord', guessedWord);
+    localStorage.setItem('attempts', attempts);
+  }
 
   if (attempts === 0) {
-    return <div>You lost! The word was "{originalWord}".</div>;
+    return (
+      <div>
+        <DeathScreen className="mega" message={`You lost! The word was "${originalWord}"`} route="/hangman" />
+      </div>
+    );
   }
 
   if (guessedWord === originalWord) {
-    return <div>Congratulations! You guessed the word: "{guessedWord}".</div>;
+    return (
+    <div>
+      <DeathScreen className ="mega" message={`Congratulations! You guessed the word: "${guessedWord}"`} route="/hangman" />
+    </div>
+    );
   }
 
   return (
     <div>
-      <button onClick={SpeechRecognition.startListening}>Start Guessing</button>
-      <button onClick={SpeechRecognition.stopListening}>Stop Guessing</button>
-      <p>Word so far: {guessedWord}</p>
-      <p>Attempts left: {attempts}</p>
+      <TextToSpeech text={`The word is ${originalWord.length} letters long`} />
+      <br /><br />
+      <div className="gametext">Word so far: {"\n"} {guessedWord}</div>
+      <div className="gametext">Attempts left: {attempts}</div>
+      <Container>
+        <Row>
+        <Button onClick={SpeechRecognition.startListening} variant="dark" className="mega">Start Guessing</Button>
+        </Row>
+        <Row>
+          <br/>
+        </Row>
+        <Row>
+        <Button onClick={SpeechRecognition.stopListening} variant="dark" className="mega">Stop and Process Guess</Button>
+        </Row>
+        <Row>
+          <br/>
+        </Row>
+        <Row>
+        <Button onClick={failGame} variant="dark" className="mega">Quit</Button>
+        </Row>
+        <Row>
+          <br/>
+        </Row>
+        <Row>
+        <Button onClick={saveGame} variant="dark" className="mega">Save Game</Button>
+        </Row>
+      </Container>
     </div>
+    
   );
 };
 
-export default HangmanKeyboard;
+export default HangmanGame;

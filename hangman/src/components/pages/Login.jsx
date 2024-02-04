@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-//import { Navigate, useHistory, useNavigate } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
 import './login.css'
+import { useNavigate } from 'react-router-dom';
 import Header from '../Header'
 import Form from 'react-bootstrap/Form'
 import { Container, Row } from 'react-bootstrap';
@@ -44,27 +43,27 @@ const Login = () => {
       <br/><br/><br/>
       <Container>
         <Row>
-        <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formBasicEmail">
-            <Form.Control className="mega w-100" type="username" placeholder="Username" variant="dark" value={username} onChange={handleUsernameChange}/>
-                <br /><br /><br />
-            </Form.Group>
-            <Form.Group controlId="formBasicPassword">
-            <Form.Control className="mega" type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
-            </Form.Group>
+          <Form onSubmit={handleSubmit}>
+            <Form.Group className="mega" controlId="formBasicEmail">
+              <Form.Control type="username" placeholder="Username" variant="dark" value={username} onChange={handleUsernameChange}/>
+                <br/>
+              </Form.Group>
+              <Form.Group className="mega" controlId="formBasicPassword">
+                <Form.Control type="password" placeholder="Password" size="lg" value={password} onChange={handlePasswordChange} />
+              </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
-                <br /><br /><br />
+              <br/>
             </Form.Group>
             <Row>
-            <button type="submit" className="btn btn-dark mega">Submit</button>
+              <button type="submit" className="btn btn-dark mega">Submit</button>
             </Row>
             <br />
             <Row>
             <button type="button" className="btn btn-dark mega" onClick={handleCreateAccount}>
-            Create New Account
+              Create New Account
             </button>
             </Row>
-        </Form>
+          </Form>
         </Row>
         <br/><br/><br/>
       </Container>

@@ -19,9 +19,9 @@ const GameComponent = () => {
   const handleShowHelp = () => setShowHelp(true);
 
   const difficultyMapping = {
-    'easy': 5,
-    'normal': 10,
-    'hard': 15
+    'easy': 6,
+    'normal': 9,
+    'hard': 12
   };
 
   const handleStartGame = (difficulty) => {
@@ -32,7 +32,7 @@ const GameComponent = () => {
   return (
     <div>
       <Container>
-      <br/><br/><br/>
+      <br/><br/>
         <Row className="mb-3">
           <Button variant="dark" className="mega w-100" onClick={handleShow}>
           Start Game
@@ -68,19 +68,19 @@ const GameComponent = () => {
             </Modal.Body>
           </Modal>
         </Row>
-        <br/><br/><br/>
+        <br/><br/>
         <Row className="mb-3">
           <Link to="/Continue">
             <Button className="mega w-100" variant="dark">Continue</Button>
           </Link>
         </Row>
-        <br/><br/><br/>
+        <br/><br/>
         <Row className="mb-3">
         <Link to="/Leaderboard">
       <Button className="mega w-100" variant="dark">Leaderboard</Button>
       </Link>
       </Row>
-      <br/><br/><br/>
+      <br/><br/>
       <Button className="mega w-100" variant="dark" onClick={handleShowHelp}>Help</Button>
       <Modal show={showHelp} onHide={handleCloseHelp} size="lg" centered>
         <Modal.Header closeButton>
