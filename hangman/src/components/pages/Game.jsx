@@ -28,7 +28,7 @@ const GameComponent = () => {
                 </Button>
                 </Row>
 
-                <Modal show={show} onHide={handleClose} size="lg" centered>
+<Modal show={show} onHide={handleClose} size="lg" centered>
   <Modal.Header closeButton>
     <Modal.Title>Select Difficulty</Modal.Title>
   </Modal.Header>
@@ -76,7 +76,6 @@ const GameComponent = () => {
                   
                   <Modal.Body>
                   You guess the letters of a word to solve the word. The length of the word is given by text to speech. You make your guess by talking into the microphone. You are allowed a given amount of wrong guesses before you are out of the game. 
-
                   </Modal.Body>
                 </Modal>
         </Row>

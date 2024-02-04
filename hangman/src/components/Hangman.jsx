@@ -4,8 +4,8 @@ import DeathScreen from './Deathscreen';
 import { Button, Container, Row, Col} from 'react-bootstrap';
 import './pages/Game.css';
 
-const HangmanGame = () => {
-  const originalWord = 'apple';
+const HangmanGame = ({ word }) => {
+  const originalWord = word || 'apple';
   const [guessedWord, setGuessedWord] = useState(Array(originalWord.length).fill('_').join(''));
   const [attempts, setAttempts] = useState(3);
   const { transcript, resetTranscript } = useSpeechRecognition();

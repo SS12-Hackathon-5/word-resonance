@@ -6,6 +6,7 @@ import Game from './components/pages/Game';
 import Account from './components/pages/Account';
 import Menu from './components/Menu';
 import HangmanGame from './components/Hangman';
+import Leaderboard from './components/pages/Leaderboard';
 
 function App() {
   return (
@@ -16,7 +17,6 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/game" element={<Game />} />
           <Route path="/account" element={<Account />} />
-          {/* Add other routes here */}
           <Route path="/hangman" element={<HangmanGame />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
         </Routes>
