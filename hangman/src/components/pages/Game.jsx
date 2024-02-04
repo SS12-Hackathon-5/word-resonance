@@ -15,8 +15,6 @@ const GameComponent = () => {
   const [showLeaderboard, setShowLeaderboard] = useState(false);
   const [showHelp, setShowHelp] = useState(false);
 
-
-
   const handleCloseStart = () => setShowStart(false);
   const handleCloseLeaderboard = () => setShowLeaderboard(false);
   const handleCloseHelp = () => setShowHelp(false);
@@ -39,7 +37,9 @@ const GameComponent = () => {
                     <Modal.Title>Select Difficulty</Modal.Title>
                   </Modal.Header>
                   <Modal.Body>
-                    <Button variant="dark" className="mega" onClick={handleCloseStart}>Easy</Button>
+                    <Link to="/Hangman">
+                    <Button variant="dark" className="mega">Easy</Button>
+                    </Link>
                     <br/><br/>
                     <Button variant="dark" className="mega" onClick={handleCloseStart}>Normal</Button>
                     <br/><br/>
@@ -54,9 +54,8 @@ const GameComponent = () => {
             </Row>
             <br/><br/><br/>
             <Row>
-            <Button className="mega" variant="dark" onClick= {handleShowLeaderboard}>
-            Leaderboard</Button>
-            <Modal show={showLeaderboard} onHide={handleCloseLeaderboard} size="lg" centered>
+            <Button className="mega" variant="dark" onClick={handleShowLeaderboard}>Leaderboard</Button>
+              <Modal show={showLeaderboard} onHide={handleCloseLeaderboard} size="lg" centered>
                   <Modal.Header closeButton>
                     <Modal.Title>Leaderboard</Modal.Title>
                   </Modal.Header>
@@ -73,8 +72,10 @@ const GameComponent = () => {
             </Row>
             <br/><br/><br/>
             <Row>
-            <Button className="mega" variant="dark" onClick={handleShowHelp}>
-              Help</Button>
+            </Row>
+            <br/><br/><br/>
+            <Row>
+            <Button className="mega" variant="dark" onClick={handleShowHelp}>Help</Button>
               <Modal show={showHelp} onHide={handleCloseHelp} size="lg" centered>
                   <Modal.Header closeButton>
                     <Modal.Title>Help</Modal.Title>
